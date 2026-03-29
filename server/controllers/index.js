@@ -302,7 +302,7 @@ const searchCatName = async (req, res) => {
 // Function to handle searching a dog by name 
 //   (updates the age by 1 when found)
 const searchDogName = async (req, res) => {
-  if (req.query.name) {
+  if (!req.query.name) {
     return res.status(400).json({ error: "'name' query param is required for search" });
   }
 
@@ -319,7 +319,8 @@ const searchDogName = async (req, res) => {
   }
 
   // this will only run if a dog is found ... increase its age by 1
-  doc.updateOne({ age: (doc.age + 1) });
+  doc.age++;
+  await doc.save();
 
   return res.json({
     name: doc.name,
