@@ -138,26 +138,6 @@ const getCatName = async (req, res) => {
   }
 }
 
-// Returns the name of the last added dog.
-// const getDogName = async (req, res) => {
-//   try {
-//     const doc = await Cat.findOne({})
-//       .sort({ "createdDate": "descending" })
-//       .lean()
-//       .exec();
-
-//     if (doc) {
-//       return res.json({ name: doc.name });
-//     }
-
-//     return res.status(404).json({ error: "No dog found" });
-
-//   } catch (err) {
-//     console.log(err);
-//     return res.status(500).json({ error: "Something went wrong contacting the database" });
-//   }
-// };
-
 // Function to create a new cat in the database
 const setCatName = async (req, res) => {
   /* If we look at views/page2.handlebars, the form has inputs for a firstname, lastname
@@ -388,7 +368,6 @@ module.exports = {
   page3: hostPage3,
   page4: hostPage4,
   getCatName,
-  // getDogName,
   setCatName,
   setDogName,
   searchCatName,
